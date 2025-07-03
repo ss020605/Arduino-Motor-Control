@@ -10,7 +10,7 @@ void setup() {
   Serial.begin(9600);
   myservo1.attach(11);
   myservo2.attach(9);
-  Serial.println("For positional servo, enter Pos<angle>, for continuous rotation servo, enter Con<speed>");
+  Serial.println("For the positional servo, enter Pos<angle>, for the continuous rotation servo, enter Con<speed>");
 }
 
 void loop() {
