@@ -1,7 +1,7 @@
 #include <Servo.h>
-// inializing variables
-Servo myservo1;  
-Servo myservo2; 
+//initializing the variables
+Servo myservo1; //positional 
+Servo myservo2; //continuous rotational
 String input;
 int angle;
 int speedPercent;
@@ -32,7 +32,7 @@ void posServo() {
   angle = constrain(angle, 0, 180);
   myservo1.write(angle);
 }
-// Rotational serve
+// Rotational servo
 void rotServo() {
   speedPercent = constrain(speedPercent, -100, 100);
   int speed = map(speedPercent, -100, 100, 0, 180);
