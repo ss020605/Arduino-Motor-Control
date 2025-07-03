@@ -1,5 +1,5 @@
 #include <Servo.h>
-
+// inializing variables
 Servo myservo1;  
 Servo myservo2; 
 String input;
