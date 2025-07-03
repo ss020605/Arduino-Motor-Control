@@ -27,12 +27,12 @@ void loop() {
     } 
   }
 }
-
+// For positional servo
 void posServo() {
   angle = constrain(angle, 0, 180);
   myservo1.write(angle);
 }
-
+// For rotational serve
 void rotServo() {
   speedPercent = constrain(speedPercent, -100, 100);
   int speed = map(speedPercent, -100, 100, 0, 180);
