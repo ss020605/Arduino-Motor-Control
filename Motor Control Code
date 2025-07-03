@@ -1,0 +1,40 @@
+#include <Servo.h>
+
+Servo myservo1;  
+Servo myservo2; 
+String input;
+int angle;
+int speedPercent;
+
+void setup() {
+  Serial.begin(9600);
+  myservo1.attach(11);
+  myservo2.attach(9);
+  Serial.println("For positional, enter Pos<angle>, for continuous, enter Con<speed>");
+}
+
+void loop() {
+  if (Serial.available()) {
+    input = Serial.readStringUntil('\n');
+
+    if (input.startsWith("Pos")) {
+      angle = input.substring(3).toInt();
+      posServo();
+    } 
+    else if (input.startsWith("Con")) {
+      speedPercent = input.substring(3).toInt(); 
+      rotServo();
+    } 
+  }
+}
+
+void posServo() {
+  angle = constrain(angle, 0, 180);
+  myservo1.write(angle);
+}
+
+void rotServo() {
+  speedPercent = constrain(speedPercent, -100, 100);
+  int speed = map(speedPercent, -100, 100, 0, 180);
+  myservo2.write(speed);
+}
